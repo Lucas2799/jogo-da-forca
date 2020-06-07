@@ -108,6 +108,33 @@ class Hangman:
 	def print_game_status(self):
 		print (board[len(self.missed_letters)])
 		print ('\nPalavra: ' + self.hide_word())
+		print("\ndica nome de pessoas")
+		print ('\nLetras erradas: ',) 
+		for letter in self.missed_letters:
+			print (letter,) 
+		print ()
+		print ('Letras corretas: ',)
+		for letter in self.guessed_letters:
+			print (letter,)
+		print ()
+
+	def print_jogo_status(self):
+		print (board[len(self.missed_letters)])
+		print ('\nPalavra: ' + self.hide_word())
+		print("\ndica : objetos")
+		print ('\nLetras erradas: ',) 
+		for letter in self.missed_letters:
+			print (letter,) 
+		print ()
+		print ('Letras corretas: ',)
+		for letter in self.guessed_letters:
+			print (letter,)
+		print ()
+
+	def print_joginho_status(self):
+		print (board[len(self.missed_letters)])
+		print ('\nPalavra: ' + self.hide_word())
+		print("\ndica: nome de paises ")
 		print ('\nLetras erradas: ',) 
 		for letter in self.missed_letters:
 			print (letter,) 
@@ -118,23 +145,35 @@ class Hangman:
 		print ()
 
 # Método para ler uma palavra de forma aleatória do banco de palavras
-def rand_word():
-        with open("estados.txt", "rt") as f:
+def banconome():
+        with open("nome.txt", "rt") as f:
                 bank = f.readlines()
         return bank[random.randint(0,len(bank))].strip()
+
+def bancoobjeto():
+		with open("objeto.txt", "rt") as f:
+        		bank = f.readlines()
+		return bank[random.randint(0,len(bank))].strip()
+
+def bancopais():
+		with open("paises.txt", "rt") as f:
+        		bank = f.readlines()
+		return bank[random.randint(0,len(bank))].strip()
 
 # Método Main - Execução do Programa
 def main():
 
 	# Objeto
-	game = Hangman(rand_word())
+	game =  Hangman(banconome()) 
 
 	# Enquanto o jogo não tiver terminado, print do status, solicita uma letra e faz a leitura do caracter
 	while not game.hangman_over():
 		game.print_game_status()
-		print("dica: estados brasileiros")
 		user_input = input('\nDigite uma letra: ')
+		print("a dica é: nome de pessoas\n")
 		game.guess(user_input)
+		# define uma dica 
+
 
 	# Verifica o status do jogo
 	game.print_game_status()	
@@ -145,7 +184,51 @@ def main():
 	else:
 		print ('\nGame over! Você perdeu.')
 		print ('A palavra era ' + game.word)
+
+
+		# Objeto
+	jogo =  Hangman(bancoobjeto()) 
+
+	# Enquanto o jogo não tiver terminado, print do status, solicita uma letra e faz a leitura do caracter
+	while not jogo.hangman_over():
+		jogo.print_jogo_status()
+		user_input = input('\nDigite uma letra: ')
+		jogo.guess(user_input)
+		# define uma dica 
+
+
+	# Verifica o status do jogo
+	jogo.print_jogo_status()	
+
+	# De acordo com o status, imprime mensagem na tela para o usuário
+	if jogo.hangman_won():
+		print ('\nParabéns! Você venceu!!')
+	else:
+		print ('\nGame over! Você perdeu.')
+		print ('A palavra era ' + jogo.word)
+
+		# Objeto
+	joginho =  Hangman(bancopais()) 
+
+	# Enquanto o jogo não tiver terminado, print do status, solicita uma letra e faz a leitura do caracter
+	while not joginho.hangman_over():
+		joginho.print_joginho_status()
+		user_input = input('\nDigite uma letra: ')
+		joginho.guess(user_input)
+		# define uma dica 
+
+
+	# Verifica o status do jogo
+	joginho.print_game_status()	
+
+	# De acordo com o status, imprime mensagem na tela para o usuário
+	if joginho.hangman_won():
+		print ('\nParabéns! Você venceu!!')
+	else:
+		print ('\nGame over! Você perdeu.')
+		print ('A palavra era ' + joginho.word)
 		
+	
 	
 
 # Executa o programa		
