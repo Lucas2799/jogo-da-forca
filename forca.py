@@ -200,7 +200,7 @@ def main():
 
 	# De acordo com o status, imprime mensagem na tela para o usuário
 	if game.hangman_won():
-		print ('\nParabéns! Você venceu!!')
+		 print ('\nParabéns! Você venceu!!')
 	else:
 		print ('\nGame over! Você perdeu.')
 		print ('A palavra era ' + game.word)
@@ -250,7 +250,7 @@ def main():
 		print ('\nGame over! Você perdeu.')
 		print ('A palavra era ' + joginho.word)
 
-		# Objeto
+	# Objeto
 	job =  Hangman(bancofrutas()) 
 
 	# Enquanto o jogo não tiver terminado, print do status, solicita uma letra e faz a leitura do caracter
@@ -263,10 +263,10 @@ def main():
 
 
 	# Verifica o status do jogo
-	jogo.print_jogo_status()	
+	job.print_job_status()	
 
 	# De acordo com o status, imprime mensagem na tela para o usuário
-	if jogo.hangman_won():
+	if job.hangman_won():
 		print ('\nParabéns! Você venceu!!')
 	else:
 		print ('\nGame over! Você perdeu.')
@@ -279,3 +279,5 @@ def main():
 # Executa o programa		
 if __name__ == "__main__":
 	main()
+	
+
