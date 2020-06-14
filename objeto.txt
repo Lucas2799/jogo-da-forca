@@ -1,7 +1,7 @@
 copo
 cadeira
 vela
-controlhe
+controle
 televisão
 celular
 mouse
@@ -16,3 +16,15 @@ prato
 panela
 coleira
 pigente
+computador
+caixa
+lampada
+pote
+espelho
+lustre
+garrafa
+tapete
+quadro
+relogio
+porta
+oculos

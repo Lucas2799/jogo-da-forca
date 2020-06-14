@@ -144,6 +144,20 @@ class Hangman:
 			print (letter,)
 		print ()
 
+	def print_job_status(self):
+		print (board[len(self.missed_letters)])
+		print ('\nPalavra: ' + self.hide_word())
+		print("\ndica: nome de paises ")
+		print ('\nLetras erradas: ',) 
+		for letter in self.missed_letters:
+			print (letter,) 
+		print ()
+		print ('Letras corretas: ',)
+		for letter in self.guessed_letters:
+			print (letter,)
+		print ()
+
+
 # Método para ler uma palavra de forma aleatória do banco de palavras
 def banconome():
         with open("nome.txt", "rt") as f:
@@ -159,6 +173,12 @@ def bancopais():
 		with open("paises.txt", "rt") as f:
         		bank = f.readlines()
 		return bank[random.randint(0,len(bank))].strip()
+
+def bancofrutas():
+		with open("frutas.txt", "rt") as f:
+        		bank = f.readlines()
+		return bank[random.randint(0,len(bank))].strip()
+
 
 # Método Main - Execução do Programa
 def main():
@@ -193,6 +213,7 @@ def main():
 	while not jogo.hangman_over():
 		jogo.print_jogo_status()
 		user_input = input('\nDigite uma letra: ')
+		print("a dica é : nome de objetos \n")
 		jogo.guess(user_input)
 		# define uma dica 
 
@@ -214,6 +235,7 @@ def main():
 	while not joginho.hangman_over():
 		joginho.print_joginho_status()
 		user_input = input('\nDigite uma letra: ')
+		print("a dica é : nome de paises \n")
 		joginho.guess(user_input)
 		# define uma dica 
 
@@ -227,6 +249,29 @@ def main():
 	else:
 		print ('\nGame over! Você perdeu.')
 		print ('A palavra era ' + joginho.word)
+
+		# Objeto
+	job =  Hangman(bancofrutas()) 
+
+	# Enquanto o jogo não tiver terminado, print do status, solicita uma letra e faz a leitura do caracter
+	while not job.hangman_over():
+		job.print_job_status()
+		user_input = input('\nDigite uma letra: ')
+		print("a dica é : nome de frutas \n")
+		job.guess(user_input)
+		
+
+
+	# Verifica o status do jogo
+	jogo.print_jogo_status()	
+
+	# De acordo com o status, imprime mensagem na tela para o usuário
+	if jogo.hangman_won():
+		print ('\nParabéns! Você venceu!!')
+	else:
+		print ('\nGame over! Você perdeu.')
+		print ('A palavra era ' + job.word)
+
 		
 	
 	
