@@ -1,3 +1,3 @@
-# jogo-da-forca
-Projeto desenvolvido para estudos e projeto de facultdade!
-Estudo em  python e vercionamento com github
+# Jogo da forca
+<p>Projeto desenvolvido para estudos universitários!</p>
+<p>Estudo em  python e vercionamento com github</p>
